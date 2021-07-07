@@ -1,0 +1,32 @@
+{
+  "name": "node_base",
+  "version": "0.1.0",
+  "description": "Default node server base file",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Choih0401/Nodejs_Base.git"
+  },
+  "author": "w00kiki2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Choih0401/Nodejs_Base/issues"
+  },
+  "homepage": "https://github.com/Choih0401/Nodejs_Base#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.6.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "swagger-jsdoc": "^4.3.2",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
