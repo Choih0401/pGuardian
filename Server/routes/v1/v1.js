@@ -1,18 +1,16 @@
-import express from 'express'
-import * as API from './api'
+import express from 'express';
+import * as USER from './user';
 
-const router = express.Router()
+const router = express.Router();
 
 router.get('/', (req, res) => {
     res.json({
         code: 200,
         v: 'v1',
         status: 'OK'
-    })
-})
+    });
+});
 
-router.post('/auth/signup', API.signUp) // 회원가입 api
+router.post('/user/signUp', USER.signUp);
 
-router.post('/auth/signin', API.signIn) // 로그인 api
-
-export default router
+export default router;

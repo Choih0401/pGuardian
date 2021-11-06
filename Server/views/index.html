@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Arduino Plant Control Board</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+  <div class="dashboard">
+    <header>
+      <div class="menuboard">
+        <div class="menu">
+          <i id="addArduinoBtn" name="addArduinoBtn" class="menuicon1 fas fa-plus fa-2x"></i>
+          <span><strong>DashBoard</strong></span>
+          <i id="logoutBtn" name="logoutBtn" class="menuicon2 fas fa-sign-out-alt fa-2x"></i>
+        </div>
+      </div>
+      <div class="header f fe">
+        <div class="icon"></div>
+        <div class="heading">
+          <h5 class="date">1 Feb 2021 / Seoul</h5>
+          <h2 class="title">Country</h2>
+        </div>
+      </div>
+
+      <div class="header weather-grident">
+        <div class="weather f">
+          <div>
+            <strong><a id="nowTemp" name="nowTemp">N°</a><sup>C</sup></strong>
+            <p>Outdoor Temp</p>
+          </div>
+          <div>
+            <strong><a id="nowHumi" name="nowHumi">N</a><sup>%</sup></a></strong>
+            <p>Outdoor Humidity</p>
+          </div>
+          <div class="maxTemp">
+            <strong><a id="maxTemp" name="maxTemp">N°</a><sup>C</sup></strong>
+            <p>Outdoor Max Temp</p>
+          </div>
+          <div class="minTemp">
+            <strong><a id="minTemp" name="minTemp">N°</a><sup>C</sup></strong>
+            <p>Outdoor Min Temp</p>
+          </div>
+        </div>
+        </div>
+    </header>
+    <section>
+      <!-- Category -->
+      <div class="category">
+        <ul>
+          <li><a id="Arduino00" name="Arduino00" onclick="changeCategory('Arduino00')" class="active">Arduino00</a></li>
+          <li><a id="Arduino01" name="Arduino01" onclick="changeCategory('Arduino01')">Arduino01</a></li>
+          <li><a id="Arduino02" name="Arduino02" onclick="changeCategory('Arduino02')">Arduino02</a></li>
+          <li><a id="Arduino03" name="Arduino03" onclick="changeCategory('Arduino03')">Arduino03</a></li>
+        </ul>
+      </div>
+      <!-- Appliances -->
+      <div class="appliances">
+
+        <div class="appliance">
+          <label>
+            <i id="tempIcon" name="tempIcon" class="fas fa-thermometer-three-quarters fa-2x" style="color: red;"></i>
+            <strong class="customIcon"><a>N°</a><sup>C</sup></strong>
+            <span id="tempSensor" name="tempSensor">온도 센서</span>
+          </label>
+        </div>
+
+        <div class="appliance">
+          <label>
+            <i id="humiIcon" name="humiIcon" class="fas fa-tint fa-2x" style="color: blue;"></i>
+            <strong class="customIcon"><a>N</a><sup>%</sup></strong>
+            <span id="humiSensor" name="humiSensor">습도 센서</span>
+          </label>
+        </div>
+
+        <div class="appliance">
+          <label>
+            <i id="soilHumiIcon" name="soilHumiIcon" class="fas fa-leaf fa-2x" style="color: green;"></i>
+            <strong class="customIcon"><a>N</a><sup>%</sup></strong>
+            <span id="soilHumiSensor" name="soilHumiSensor">토양 습도 센서</span>
+          </label>
+        </div>
+
+        <div class="appliance">
+          <input type="checkbox" name="a" id="b">
+          <label for="b" onclick="changeState('pump')">
+            <i id="pumpIcon" name="pumpIcon" class="fas fa-shower fa-2x" style="color: #757bf6;"></i>
+            <strong class="customIcon"><a>Water Pump</a></strong>
+            <span id="pump" name="pump">Off</span>
+            <small></small>
+          </label>
+        </div>
+
+        <div class="appliance">
+          <input type="checkbox" name="a" id="c">
+          <label for="c" onclick="changeState('fan')">
+            <i id="pumpIcon" name="pumpIcon" class="fas fa-fan fa-2x" style="color: #757bf6;"></i>
+            <strong class="customIcon"><a>Fan</a></strong>
+            <span id="fan" name="fan">Off</span>
+            <small></small>
+          </label>
+        </div>
+
+        <div class="m-history">
+          <h2>Data History</h2>
+          <div class="graph">
+            <canvas id="line-chart" height="250px"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="./scripts/script.js"></script>
+</body>
+
+</html>
