@@ -1,7 +1,20 @@
 $(document).ready(() => {
   getWeather();
   setInterval(getWeather, 600000);
+  setInterval(getSensorData, 1000);
 });
+
+var getSensorData = () => {
+  $.ajax({
+    url: "http://127.0.0.1:3000/gdata",
+    dataType: "json",
+    type: "GET",
+    success: (data) => {
+      $("#nowTempBtn").text(data.data.nowTemp + "°");
+      $("#nowHumiBtn").text(data.data.nowHumi);
+    }
+  });
+}
 
 var getWeather = () => {
   let weatherIcon = {
