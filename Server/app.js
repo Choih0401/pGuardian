@@ -13,6 +13,9 @@ import main from './routes/main';
 
 const app = express();
 
+var nowTemp = "0";
+var nowHumi = "0";
+
 app.set('port', process.env.PORT || 5000);
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,6 +34,35 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/', main);
+
+app.use('/idata', (req, res) => {
+    var {
+        data1,
+        data2
+    } = req.query;
+
+    if(data1 != null && data1 != undefined) {
+        nowTemp = data1;
+    }
+
+    if(data2 != null && data2 != undefined) {
+        nowHumi = data2;
+    }
+
+    res.json({
+        code: 200,
+    })
+});
+
+app.use('/gdata', (req, res) => {
+    res.json({
+        code: 200,
+        data: {
+            nowTemp: nowTemp,
+            nowHumi: nowHumi
+        }
+    })
+});
 
 app.use('/api/v1', v1);
 
